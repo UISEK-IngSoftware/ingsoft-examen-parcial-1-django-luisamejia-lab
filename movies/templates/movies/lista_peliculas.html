@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+    <title>Películas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Películas</h1>
+
+    {% for pelicula in peliculas %}
+        <div style="margin-bottom:20px;">
+            <h2>{{ pelicula.titulo }}</h2>
+            <p>{{ pelicula.descripcion }}</p>
+            <p>Año: {{ pelicula.anio }}</p>
+            <p>Director: {{ pelicula.director }}</p>
+            {% if pelicula.imagen %}
+                <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" style="max-width: 100%; height: auto;">
+            {% endif %} 
+        </div>
+    {% endfor %}
+</body>
+</html>
