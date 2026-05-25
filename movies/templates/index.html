@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Pagina Inicial{% endblock title %}
+{% block content %}
+    <h1>Lista de Películas</h1>
+
+<div class="row gx-4 gy-4">
+    {% for pelicula in peliculas %}
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm pokemon-card">
+            <div class="card-body text-center">
+                <div class="pokemon-img-wrapper mb-3">
+                    <img src="{{ pelicula.imagen.url }}" class="card-img-top " alt="{{ pelicula.titulo }}">
+                </div>
+                <h5 class="card-title">{{ pelicula.titulo }}</h5>
+                <p class="card-text text-muted mb-3">Año: {{ pelicula.anio }}</p>
+                <a href="/pelicula/{{ pelicula.id }}/" class="btn btn-warning btn-sm rounded-pill">Ver</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

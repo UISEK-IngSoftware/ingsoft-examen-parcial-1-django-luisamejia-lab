@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Detalles de la Película{% endblock title %}
+
+
+{% block content %}
+<div class="card mb-3 card-thick-border mx-auto" style="max-width: 450px;">
+  <img src="{{ pelicula.imagen.url }}" class="card-img-top card-pokemon mx-auto d-block" alt="{{ pelicula.titulo }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ pelicula.titulo }}</h5>
+    <p class="card-text">Director: {{ pelicula.director }}</p>
+    <p class="card-text">Descripción: {{ pelicula.descripcion }}</p>
+    <a href="{% url 'movies:index' %}" class="btn btn-secondary mt-3">Cancelar</a>
+  </div>
+</div>
+{% endblock content %}
